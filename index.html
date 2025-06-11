@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syarat dan Ketentuan - Nafsu Makan Delivery</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --chrome: linear-gradient(135deg, #C0C0C0 0%, #E8E8E8 25%, #A8A8A8 50%, #D3D3D3 75%, #B8B8B8 100%);
+            --platinum: linear-gradient(135deg, #E5E4E2 0%, #F7F7F7 50%, #D1D0CE 100%);
+            --silver: linear-gradient(135deg, #BCC6CC 0%, #E8E8E8 25%, #98A8B8 50%, #D1D5DB 75%, #9CA3AF 100%);
+            --titanium: linear-gradient(135deg, #2C3E50 0%, #4A5568 50%, #1A202C 100%);
+            --accent-pink: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
+            --accent-blue: linear-gradient(135deg, #4FACFE 0%, #00F2FE 100%);
+            --glass: rgba(255, 255, 255, 0.15);
+            --glass-dark: rgba(0, 0, 0, 0.05);
+            --text-primary: #2D3748;
+            --text-light: #718096;
+            --border: rgba(255, 255, 255, 0.3);
+        }
+        
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: radial-gradient(circle at 30% 20%, #F7FAFC 0%, #EDF2F7 50%, #E2E8F0 100%);
+            min-height: 100vh;
+            padding: 15px;
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+        
+        .chrome-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(192, 192, 192, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(232, 232, 232, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(168, 168, 168, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(20px, -20px) rotate(120deg); }
+            66% { transform: translate(-20px, 10px) rotate(240deg); }
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--glass);
+            backdrop-filter: blur(30px);
+            border-radius: 32px;
+            border: 2px solid var(--border);
+            box-shadow:
+                0 32px 64px -12px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            overflow: hidden;
+            animation: slideUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--chrome);
+            opacity: 0.6;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .header {
+            background: var(--chrome);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 40%),
+                conic-gradient(from 0deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: spin 30s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .header h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: var(--titanium);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 2;
+            letter-spacing: -0.02em;
+        }
+        
+        .header p {
+            font-size: 1.4rem;
+            font-weight: 600;
+            background: var(--accent-pink);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 0.02em;
+        }
+        
+        .content {
+            padding: 50px 40px;
+            display: grid;
+            gap: 25px;
+        }
+        
+        .card {
+            background: var(--silver);
+            border-radius: 24px;
+            padding: 35px;
+            border: 1px solid var(--border);
+            box-shadow:
+                0 20px 25px -5px rgba(0, 0, 0, 0.05),
+                0 10px 10px -5px rgba(0, 0, 0, 0.02),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            text-align: left; /* FIXED: Ensure all card content starts from left */
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .card:hover::before {
+            left: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                0 32px 64px -12px rgba(0, 0, 0, 0.12),
+                0 20px 20px -5px rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+        
+        .card-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--titanium);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.01em;
+            text-align: left; /* FIXED: Title alignment */
+        }
+        
+        .emoji {
+            font-size: 1.8rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        .pricing-grid {
+            display: grid;
+            gap: 3px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--glass-dark);
+            padding: 3px;
+            margin: 25px 0;
+        }
+        
+        .pricing-item {
+            background: var(--platinum);
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: left; /* FIXED: Pricing items alignment */
+        }
+        
+        .pricing-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-blue);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .pricing-item:hover::before {
+            opacity: 0.1;
+        }
+        
+        .pricing-item:hover {
+            transform: scale(1.03);
+            z-index: 2;
+        }
+        
+        .distance {
+            font-weight: 600;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+            text-align: left; /* FIXED: Distance text alignment */
+        }
+        
+        .price {
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.02em;
+        }
+        
+        .price-regular {
+            background: var(--accent-pink);
+            color: white;
+            box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
+        }
+        
+        .price-free {
+            background: var(--accent-blue);
+            color: white;
+            box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3); }
+            to { box-shadow: 0 8px 24px rgba(79, 172, 254, 0.5); }
+        }
+        
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .schedule-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            text-align: center; /* Keep center for schedule cards - this makes sense */
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .schedule-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--chrome);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .schedule-card:hover::before {
+            opacity: 0.1;
+            animation: rotate 3s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .schedule-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .schedule-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .schedule-time {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--accent-pink);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.02em;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #FFF5E6 0%, #FFE4B5 100%);
+            border: 2px solid #FFB84D;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            font-weight: 600;
+            box-shadow: 0 8px 25px -8px rgba(255, 184, 77, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-align: left; /* FIXED: Highlight box alignment */
+        }
+        
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .info-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 15px;
+        }
+        
+        .info-item {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 18px 22px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: left; /* FIXED: Info items alignment */
+        }
+        
+        .info-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-blue);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-item:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .info-item:hover {
+            transform: translateX(8px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .contact-btn {
+            background: var(--chrome);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            text-align: center; /* Keep center for contact buttons - this makes sense */
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-pink);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .contact-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            color: white;
+            box-shadow: 0 20px 40px -8px rgba(255, 107, 157, 0.4);
+        }
+        
+        .contact-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer {
+            background: var(--titanium);
+            padding: 40px;
+            text-align: center; /* Keep center for footer - this makes sense */
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05) 0%, transparent 50%);
+        }
+        
+        .footer-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-love {
+            font-weight: 700;
+            font-size: 1.3rem;
+            background: var(--accent-pink);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* FIXED: Added specific styles to ensure ALL text starts from left */
+        .card p {
+            text-align: left !important;
+            margin-bottom: 15px;
+        }
+        
+        .card * {
+            text-align: left !important;
+        }
+        
+        /* Override for elements that should stay centered */
+        .schedule-card,
+        .schedule-card *,
+        .contact-btn,
+        .contact-btn *,
+        .footer,
+        .footer *,
+        .header,
+        .header * {
+            text-align: center !important;
+        }
+        
+        /* Pricing items on mobile should be centered */
+        @media (max-width: 768px) {
+            .pricing-item,
+            .pricing-item * {
+                text-align: center !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 5px;
+                border-radius: 24px;
+            }
+            
+            .header {
+                padding: 35px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header p {
+                font-size: 1.2rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+                gap: 20px;
+            }
+            
+            .card {
+                padding: 25px;
+            }
+            
+            .card-title {
+                font-size: 1.4rem;
+            }
+            
+            .pricing-item {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center; /* Center on mobile for pricing items is OK */
+                padding: 15px;
+            }
+            
+            .schedule-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .schedule-card {
+                padding: 20px;
+            }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chrome-bg"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>SYARAT & KETENTUAN</h1>
+            <p>NAFSU MAKAN DELIVERY SERVICE</p>
+        </div>
+        
+        <div class="content">
+            <div class="card">
+                <div class="card-title">
+                    <span class="emoji">💎</span>
+                    TARIF ONGKOS KIRIM BERDASARKAN JARAK
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-item">
+                        <div class="distance">0 - 500 meter</div>
+                        <div class="price price-free">GRATIS ⭐</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="distance">501 meter - 1 km</div>
+                        <div class="price price-regular">Rp 1.500</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="distance">1,1 km - 1,5 km</div>
+                        <div class="price price-regular">Rp 3.000</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="distance">1,6 km - 2 km</div>
+                        <div class="price price-regular">Rp 4.500</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="distance">2,1 km - 2,5 km</div>
+                        <div class="price price-regular">Rp 6.000</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="distance">2,6 km - 3 km</div>
+                        <div class="price price-regular">Rp 7.500</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="distance">3,1 km - 3,5 km</div>
+                        <div class="price price-regular">Rp 9.000</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="distance">3,6 km - 4 km</div>
+                        <div class="price price-regular">Rp 10.500</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="distance">4,1 km - 4,5 km</div>
+                        <div class="price price-regular">Rp 12.000</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="distance">4,6 km - 5 km</div>
+                        <div class="price price-regular">Rp 13.500</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="distance">> 5 km</div>
+                        <div class="price price-regular">Rp 15.000</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    <span class="emoji">⏰</span>
+                    JAM OPERASIONAL DELIVERY
+                </div>
+                <div class="schedule-grid">
+                    <div class="schedule-card">
+                        <div class="schedule-title">SESI PAGI</div>
+                        <div class="schedule-time">06:00 - 12:00</div>
+                    </div>
+                    <div class="schedule-card">
+                        <div class="schedule-title">SESI SORE</div>
+                        <div class="schedule-time">15:00 - 20:00</div>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <span class="emoji">⚠️</span>
+                    <strong>DELIVERY TIDAK TERSEDIA</strong> pada jam 12:01 - 14:59 WIB
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    <span class="emoji">📍</span>
+                    CARA PENGHITUNGAN JARAK
+                </div>
+                <p style="margin-bottom: 20px; font-weight: 500; color: var(--text-light);">Jarak dihitung menggunakan Google Maps/aplikasi GPS dari alamat kami:</p>
+                <div class="highlight-box">
+                    <strong>📍 Alamat Toko:</strong> Komplek Al Azhar, Jalan Taman Asri Lama No. 51 Rt. 6 Rw. 08, Cipadu, Larangan, Kota Tangerang, Banten, ID 15155
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    <span class="emoji">🕐</span>
+                    KETENTUAN JAM OPERASIONAL
+                </div>
+                <ul class="info-list">
+                    <li class="info-item">Pesanan di luar jam operasional akan diproses pada sesi berikutnya</li>
+                    <li class="info-item">Last order 30 menit sebelum jam tutup (11:30 & 19:30)</li>
+                    <li class="info-item">Konfirmasi pesanan maksimal 15 menit setelah order</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    <span class="emoji">💳</span>
+                    KETENTUAN PEMBAYARAN
+                </div>
+                <ul class="info-list">
+                    <li class="info-item"><strong>Cash On Delivery (COD):</strong> Harap siapkan uang pas atau kembalian maksimal Rp 50.000</li>
+                    <li class="info-item">Transfer bank (konfirmasi sebelum pengiriman)</li>
+                    <li class="info-item">E-wallet (OVO, GoPay, DANA)</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    <span class="emoji">🚚</span>
+                    KETENTUAN PENGIRIMAN
+                </div>
+                <ul class="info-list">
+                    <li class="info-item">Estimasi waktu pengiriman: 15-30 menit</li>
+                    <li class="info-item">Driver akan konfirmasi via WhatsApp/telepon saat tiba</li>
+                    <li class="info-item">Pembeli wajib stand by saat driver tiba (max waiting time: 5 menit)</li>
+                </ul>
+                <div class="highlight-box">
+                    <span class="emoji">📸</span>
+                    <strong>WAJIB KIRIM FOTO</strong> di depan rumah/pagar untuk memudahkan pengiriman
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    <span class="emoji">⚡</span>
+                    PENGECUALIAN
+                </div>
+                <ul class="info-list">
+                    <li class="info-item">Ongkir dapat berubah sewaktu-waktu tanpa pemberitahuan</li>
+                    <li class="info-item">Tidak berlaku saat cuaca ekstrem (hujan deras, banjir)</li>
+                    <li class="info-item">Area yang tidak dapat diakses kendaraan bermotor dikenakan biaya tambahan</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    <span class="emoji">📱</span>
+                    KONTAK & PEMESANAN
+                </div>
+                <div class="contact-grid">
+                    <a href="https://wa.me/087887349898" class="contact-btn">
+                        <span>
+                            <span class="emoji">💬</span><br>
+                            WhatsApp<br>
+                            <strong>087887349898</strong>
+                        </span>
+                    </a>
+                    <a href="https://instagram.com/nafsumakanku" class="contact-btn">
+                        <span>
+                            <span class="emoji">📸</span><br>
+                            Instagram<br>
+                            <strong>@nafsumakanku</strong>
+                        </span>
+                    </a>
+                    <a href="https://tiktok.com/@nafsumakanku" class="contact-btn">
+                        <span>
+                            <span class="emoji">🎵</span><br>
+                            TikTok<br>
+                            <strong>@nafsumakanku</strong>
+                        </span>
+                    </a>
+                </div>
+                <div class="highlight-box">
+                    <span class="emoji">🛵</span>
+                    <strong>Online Food Delivery:</strong> Grab Food • GoFood • Shopee Food
+                    <br><strong>Cari dengan nama:</strong> "Nafsu Makan"
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p class="footer-text">*Syarat dan ketentuan dapat berubah sewaktu-waktu. Untuk informasi terbaru, hubungi customer service kami.</p>
+            <p class="footer-love pulse-animation">Terima kasih telah mempercayai Nafsu Makan! 🍜❤️</p>
+        </div>
+    </div>
+    
+    <script>
+        // Enhanced interaction effects
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+        
+        // Pricing item hover effects
+        document.querySelectorAll('.pricing-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.03) translateZ(10px)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+        
+        // Contact button ripple effect
+        document.querySelectorAll('.contact-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                let ripple = document.createElement('span');
+                let rect = this.getBoundingClientRect();
+                let size = Math.max(rect.width, rect.height);
+                let x = e.clientX - rect.left - size / 2;
+                let y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.6);
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                `;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+        
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
